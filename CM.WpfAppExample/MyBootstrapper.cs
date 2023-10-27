@@ -2,6 +2,7 @@
 using CM.WpfAppExample.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace CM.WpfAppExample
               .Singleton<IWindowManager, WindowManager>()
               .Singleton<IEventAggregator, EventAggregator>();
 
+            //非动态则一个个写全。必须包含主窗口ShellViewModel，否则无法运行。其他不包含则无法显示。
+            _container.Singleton<ShellViewModel>();
+            _container.Singleton<CategoryViewModel>();
+            _container.Singleton<AboutViewModel>();
+            /*
             foreach (var assembly in SelectAssemblies())
             {
                 assembly.GetTypes()
@@ -40,6 +46,7 @@ namespace CM.WpfAppExample
                .ForEach(viewModelType => _container.RegisterPerRequest(
                    viewModelType, viewModelType.ToString(), viewModelType));
             }
+            //*/
         }
 
         protected override object GetInstance(Type service, string key)
