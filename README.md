@@ -27,18 +27,18 @@ Caliburn
 			    // 必须包括MainViewModel 自身，否则无法运行。其他 ViewModel 如不包含，则无法显示。
 			}
 	2. 在app.xaml 里指定resource dictionary
-<![CDATA[		    
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <local:MyBootstrapper x:Key="bootstrapper" />
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Application.Resources>
-]]>
-	3. ViewModel
+	    
+    < Application.Resources>
+        < ResourceDictionary>
+            < ResourceDictionary.MergedDictionaries>
+                < ResourceDictionary>
+                    < local:MyBootstrapper x:Key="bootstrapper" />
+                < /ResourceDictionary>
+            < /ResourceDictionary.MergedDictionaries>
+        < /ResourceDictionary>
+    < /Application.Resources>
+
+			    3. ViewModel
 		a. xml里 <Button x:Name="Edit" Width="80" Margin="5">Edit</Button>  没有action。CM会找到model里的x:Name相同名字的方法作为action， 此处即Edit()。同时，会 get  CanEdit  property，决定 Edit button是否 enable 。
 		b. 也可以用   cal:Message.Attach 来实现 binding。 cal:Message.Attach="Edit()" 此时xml头里要加上 xmlns:cal="http://caliburnmicro.com"
 
