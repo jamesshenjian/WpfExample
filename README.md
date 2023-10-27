@@ -15,7 +15,8 @@ Caliburn
 		var viewmodel = IoC.Get<CategoryViewModel>();
 		return ActivateItemAsync(viewmodel, new CancellationToken());  可以加载CategoryViewModel 这里ActiveItem不能改动
 		e. 为了使以上work，在bootstrapper里 override void Configure() 要加载所有用到的 ViewModel 
-			private readonly SimpleContainer _container = new SimpleContainer();        
+			
+   private readonly SimpleContainer _container = new SimpleContainer();        
 			protected override void Configure()
 		        {
 		            _container.Instance(_container);
