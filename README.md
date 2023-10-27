@@ -2,21 +2,19 @@
 
 This repo is created by following tutorial at https://caliburnmicro.com/documentation/Tutorials/WPF/Contents with slight differences<br><br>
 
-<![CDATA[
-
 ViewModel and View files don't have to be in the ViewModels Views directory. CM can find them.</li>
 <local:MyBootstrapper x:Key="bootstrapper" />  what's after local: must be the bootstrapper class name.  x:key is not relevant as long as it's unique.</li>
 
 
 Caliburn
-	1. ´´½¨  public class MyBootstrapper: BootstrapperBase {}
-		a. BootstrapperBase  À´×Ô Caliburn.Micro 
-		b. override  OnStartup£¨£© £» ÀïÃæcall  DisplayRootViewForAsync<MyMainViewModel>() Æô¶¯MyMainView
-		c. MyMainViewModel ¼Ì³Ğ Conductor £ºConductorBaseWithActiveItem £ºConductorBase £ºScreen¡£ ÆäËû×Ó´°¿ÚmodelÖ±½Ó¼Ì³ĞScreen
-		d. ÔÚMainView.xml Àï  <ContentControl x:Name="ActiveItem" Margin="20"/> ÔÚ  MainViewModel.OnViewLoaded()Àïµ÷ÓÃ
+	1. åˆ›å»º  public class MyBootstrapper: BootstrapperBase {}
+		a. BootstrapperBase  æ¥è‡ª Caliburn.Micro 
+		b. override  OnStartupï¼ˆï¼‰ ï¼› é‡Œé¢call  DisplayRootViewForAsync<MyMainViewModel>() å¯åŠ¨MyMainView
+		c. MyMainViewModel ç»§æ‰¿ Conductor ï¼šConductorBaseWithActiveItem ï¼šConductorBase ï¼šScreenã€‚ å…¶ä»–å­çª—å£modelç›´æ¥ç»§æ‰¿Screen
+		d. åœ¨MainView.xml é‡Œ  <ContentControl x:Name="ActiveItem" Margin="20"/> åœ¨  MainViewModel.OnViewLoaded()é‡Œè°ƒç”¨
 		var viewmodel = IoC.Get<CategoryViewModel>();
-		return ActivateItemAsync(viewmodel, new CancellationToken());  ¿ÉÒÔ¼ÓÔØCategoryViewModel ÕâÀïActiveItem²»ÄÜ¸Ä¶¯
-		e. ÎªÁËÊ¹ÒÔÉÏwork£¬ÔÚbootstrapperÀï override void Configure() Òª¼ÓÔØËùÓĞÓÃµ½µÄ ViewModel 
+		return ActivateItemAsync(viewmodel, new CancellationToken());  å¯ä»¥åŠ è½½CategoryViewModel è¿™é‡ŒActiveItemä¸èƒ½æ”¹åŠ¨
+		e. ä¸ºäº†ä½¿ä»¥ä¸Šworkï¼Œåœ¨bootstrapperé‡Œ override void Configure() è¦åŠ è½½æ‰€æœ‰ç”¨åˆ°çš„ ViewModel 
 			private readonly SimpleContainer _container = new SimpleContainer();        
 			protected override void Configure()
 		        {
@@ -26,9 +24,9 @@ Caliburn
 		              .Singleton<IEventAggregator, EventAggregator>();
 		
 		            _container.Singleton<MyViewModel>();
-			    // ±ØĞë°üÀ¨MainViewModel ×ÔÉí£¬·ñÔòÎŞ·¨ÔËĞĞ¡£ÆäËû ViewModel Èç²»°üº¬£¬ÔòÎŞ·¨ÏÔÊ¾¡£
+			    // å¿…é¡»åŒ…æ‹¬MainViewModel è‡ªèº«ï¼Œå¦åˆ™æ— æ³•è¿è¡Œã€‚å…¶ä»– ViewModel å¦‚ä¸åŒ…å«ï¼Œåˆ™æ— æ³•æ˜¾ç¤ºã€‚
 			}
-	2. ÔÚapp.xaml ÀïÖ¸¶¨resource dictionary
+	2. åœ¨app.xaml é‡ŒæŒ‡å®šresource dictionary
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -40,8 +38,5 @@ Caliburn
     </Application.Resources>
 
 	3. ViewModel
-		a. xmlÀï <Button x:Name="Edit" Width="80" Margin="5">Edit</Button>  Ã»ÓĞaction¡£CM»áÕÒµ½modelÀïµÄx:NameÏàÍ¬Ãû×ÖµÄ·½·¨×÷Îªaction£¬ ´Ë´¦¼´Edit()¡£Í¬Ê±£¬»á get  CanEdit  property£¬¾ö¶¨ Edit buttonÊÇ·ñ enable ¡£
-		b. Ò²¿ÉÒÔÓÃ   cal:Message.Attach À´ÊµÏÖ binding¡£ cal:Message.Attach="Edit()" ´ËÊ±xmlÍ·ÀïÒª¼ÓÉÏ xmlns:cal="http://caliburnmicro.com"
-
-
-]]>
+		a. xmlé‡Œ <Button x:Name="Edit" Width="80" Margin="5">Edit</Button>  æ²¡æœ‰actionã€‚CMä¼šæ‰¾åˆ°modelé‡Œçš„x:Nameç›¸åŒåå­—çš„æ–¹æ³•ä½œä¸ºactionï¼Œ æ­¤å¤„å³Edit()ã€‚åŒæ—¶ï¼Œä¼š get  CanEdit  propertyï¼Œå†³å®š Edit buttonæ˜¯å¦ enable ã€‚
+		b. ä¹Ÿå¯ä»¥ç”¨   cal:Message.Attach æ¥å®ç° bindingã€‚ cal:Message.Attach="Edit()" æ­¤æ—¶xmlå¤´é‡Œè¦åŠ ä¸Š xmlns:cal="http://caliburnmicro.com"
