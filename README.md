@@ -22,7 +22,6 @@ Caliburn
 		            _container
 		              .Singleton<IWindowManager, WindowManager>()
 		              .Singleton<IEventAggregator, EventAggregator>();
-		
 		            _container.Singleton<MyViewModel>();
 			    // 必须包括MainViewModel 自身，否则无法运行。其他 ViewModel 如不包含，则无法显示。
 			}
