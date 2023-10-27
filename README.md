@@ -43,4 +43,4 @@ Caliburn
 		b. 也可以用   cal:Message.Attach 来实现 binding。 cal:Message.Attach="Edit()" 此时xml头里要加上 xmlns:cal="http://caliburnmicro.com"
 
 
-</xmp
+</xmp>
